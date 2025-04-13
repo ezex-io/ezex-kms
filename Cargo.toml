@@ -6,10 +6,14 @@ edition = "2024"
 license = "MIT"
 
 [dependencies]
-# Add dependencies here
+tonic = { version = "0.12" }
+prost = "0.13"
+log = "0.4"
+anyhow = "1.0"
+clap = { version = "4", features = ["derive"] }
 
 [dev-dependencies]
 # Add dev-dependencies here
 
 [build-dependencies]
-# Add build-dependencies here
+tonic-build = { version = "0.12" }

@@ -1,12 +1,25 @@
-// greet returns a greeting message.
-pub fn greet() -> String {
-    "Hello, world!".to_owned()
+use clap::{Parser, Subcommand};
+
+#[derive(Parser)]
+#[command(about = "The Stateless Key Management System for ezeX platform", long_about = None)]
+#[command(version, about)]
+struct Cli {
+    #[command(subcommand)]
+    command: Commands,
+}
+
+#[derive(Subcommand)]
+enum Commands {
+    #[command(about = "Starts the services")]
+    Start,
 }
 
 fn main() {
-    println!("{}", greet());
-}
+    let cli = Cli::parse();
 
-#[cfg(test)]
-#[path = "./main_test.rs"]
-mod main_test;
+    match &cli.command {
+        Commands::Start => {
+            println!("App started!");
+        }
+    }
+}
