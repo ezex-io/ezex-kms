@@ -18,6 +18,11 @@ jobs:
         with:
           toolchain: stable
 
+      - name: installing dependencies
+        run: |
+          cargo version
+          sudo apt install -y protobuf-compiler
+
       - name: Checkout code
         uses: actions/checkout@v4
 
