@@ -1,0 +1,15 @@
+[package]
+name = "ezex-kms"
+version = "1.0.0"
+authors = ["ezeX development team"]
+edition = "2024"
+license = "MIT"
+
+[dependencies]
+# Add dependencies here
+
+[dev-dependencies]
+# Add dev-dependencies here
+
+[build-dependencies]
+# Add build-dependencies here
