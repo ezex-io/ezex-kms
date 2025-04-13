@@ -1,6 +1,6 @@
 # ezeX-KMS
 
-The Key Management Service for ezeX paltform.
+The Stateless Key Management System for ezeX platform.
 
 ## Getting Started
 
