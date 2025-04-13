@@ -5,12 +5,19 @@ authors = ["ezeX development team"]
 edition = "2024"
 license = "MIT"
 
+[[bin]]
+name = "ezex-kms"
+path = "src/main.rs"
+
 [dependencies]
+tokio = { version = "1.43", features = ["macros", "rt-multi-thread"] }
 tonic = { version = "0.12" }
 prost = "0.13"
 log = "0.4"
 anyhow = "1.0"
 clap = { version = "4", features = ["derive"] }
+dotenvy = "0.15"
+ctrlc = { version = "3.4" }
 
 [dev-dependencies]
 # Add dev-dependencies here
