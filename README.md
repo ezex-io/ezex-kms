@@ -39,7 +39,7 @@ cargo test
 To automatically format the code according to Rust's style guidelines, run:
 
 ```bash
-cargo fmt
+cargo fmt --all
 ```
 
 Run the Rust linter to catch common mistakes and improve code quality:
