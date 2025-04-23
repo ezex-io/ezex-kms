@@ -1,4 +1,7 @@
 name: Lint and Format Check (Rust)
+env:
+  CARGO_TERM_COLOR: always
+  RUST_TOOLCHAIN: stable
 permissions:
   contents: read
 
@@ -14,9 +17,10 @@ jobs:
 
     steps:
       - name: Install Rust
-        uses: actions-rs/toolchain@v1
+        uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: stable
+          toolchain: ${{env.RUST_TOOLCHAIN}}
+          components: clippy, rustfmt
 
       - name: installing dependencies
         run: |
@@ -26,8 +30,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - uses: Swatinem/rust-cache@v2
+        with:
+          env-vars: "RUST_TOOLCHAIN=${{env.RUST_TOOLCHAIN}}"
+
       - name: Check Formatting
-        run: cargo fmt --check
+        run: cargo fmt --all -- --check
 
       - name: Run Clippy
         run: cargo clippy -- -D warnings
