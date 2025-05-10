@@ -1,4 +1,4 @@
-# ezeX-KMS
+# ezex-kms
 
 The Stateless Key Management System for ezeX platform.
 
