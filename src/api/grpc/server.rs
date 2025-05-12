@@ -1,5 +1,4 @@
-use super::config::Config;
-use super::kms::kms_service_server::KmsServiceServer;
+use super::{config::Config, kms::kms_service_server::KmsServiceServer};
 use crate::api::grpc::service::KMSServiceImpl;
 use log::{error, info};
 use tonic::transport::Server;
