@@ -1,9 +1,13 @@
 use dotenvy::dotenv;
-use ezex_kms::api::grpc::server;
 use ezex_kms::config;
 use std::sync::Arc;
-use std::sync::atomic::{AtomicBool, Ordering};
-use std::thread;
+
+use ezex_kms::api::grpc::server;
+
+use std::{
+    sync::atomic::{AtomicBool, Ordering},
+    thread,
+};
 use tokio::task;
 
 pub async fn start() {

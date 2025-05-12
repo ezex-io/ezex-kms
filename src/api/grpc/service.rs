@@ -1,8 +1,8 @@
 use tonic::{Request, Response, Status};
 
 use super::kms::{
-    GetAddressRequest, GetAddressResponse, MakeWalletRequest, MakeWalletResponse, VersionRequest,
-    VersionResponse, kms_service_server::KmsService,
+    GenerateAddressRequest, GenerateAddressResponse, VersionRequest, VersionResponse,
+    kms_service_server::KmsService,
 };
 
 pub struct KMSServiceImpl {}
@@ -21,22 +21,11 @@ impl KMSServiceImpl {
 
 #[tonic::async_trait]
 impl KmsService for KMSServiceImpl {
-    async fn make_wallet(
+    async fn generate_address(
         &self,
-        _request: Request<MakeWalletRequest>,
-    ) -> anyhow::Result<Response<MakeWalletResponse>, Status> {
-        let response = MakeWalletResponse {
-            wallet_id: "<<TODO>>".to_string(),
-        };
-
-        Ok(Response::new(response))
-    }
-
-    async fn get_address(
-        &self,
-        _request: Request<GetAddressRequest>,
-    ) -> anyhow::Result<Response<GetAddressResponse>, Status> {
-        let response = GetAddressResponse {
+        _request: Request<GenerateAddressRequest>,
+    ) -> anyhow::Result<Response<GenerateAddressResponse>, Status> {
+        let response = GenerateAddressResponse {
             address: "<<TODO>>".to_string(),
         };
 

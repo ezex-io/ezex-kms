@@ -3,8 +3,7 @@ package kms;
 
 service KMSService {
   rpc Version(VersionRequest) returns (VersionResponse);
-  rpc MakeWallet(MakeWalletRequest) returns (MakeWalletResponse);
-  rpc GetAddress(GetAddressRequest) returns (GetAddressResponse);
+  rpc GenerateAddress(GenerateAddressRequest) returns (GenerateAddressResponse);
 }
 
 message VersionRequest {}
@@ -13,32 +12,17 @@ message VersionResponse {
   string version = 1;
 }
 
-message KeystoreWallet {
-  string keystore = 1;
-  string password = 2;
-}
-
-message MakeWalletRequest {
-  oneof kind {
-    KeystoreWallet keystore = 1;
-  }
-}
-
-message MakeWalletResponse {
-  string wallet_id = 1;
-}
-
 enum Curve {
   CURVE_UNSPECIFIED = 0;
-  SECP256K1 = 1;
-  ED25519 = 2;
+  CURVE_SECP256K1 = 1;
+  CURVE_ED25519 = 2;
 }
 
-message GetAddressRequest {
+message GenerateAddressRequest {
   Curve curve = 1;
   string hd_path = 2;
 }
 
-message GetAddressResponse {
+message GenerateAddressResponse {
   string address = 1;
 }

@@ -1,0 +1,12 @@
+# https://github.com/rust-lang/rustfmt/blob/master/Configurations.md
+
+# Maximum width of comments. Comments longer than this will be wrapped.
+comment_width = 100
+
+# The granularity of imports. "Crate" means imports will be grouped by crate.
+imports_granularity = "Crate"
+
+imports_layout = "HorizontalVertical"
+
+# Whether to wrap comments to fit within the specified comment width.
+wrap_comments = true
